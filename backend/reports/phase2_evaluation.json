@@ -1,0 +1,345 @@
+{
+  "created_at_utc": "2026-11-11T15:55:38.350383+00:00",
+  "selection_policy": "Highest validation PR-AUC (average precision), then validation F1, recall, and precision in that order; each candidate threshold maximizes validation F1, ties by precision.",
+  "selected_model": "random_forest",
+  "model_artifact": "C:\\Users\\Shristi\\Desktop\\capstone\\demo\\backend\\models\\initial_fraud_classifier.joblib",
+  "feature_columns": [
+    "time_seconds",
+    "amount",
+    "amount_signed_log",
+    "elapsed_day_sin",
+    "elapsed_day_cos",
+    "v1",
+    "v2",
+    "v3",
+    "v4",
+    "v5",
+    "v6",
+    "v7",
+    "v8",
+    "v9",
+    "v10",
+    "v11",
+    "v12",
+    "v13",
+    "v14",
+    "v15",
+    "v16",
+    "v17",
+    "v18",
+    "v19",
+    "v20",
+    "v21",
+    "v22",
+    "v23",
+    "v24",
+    "v25",
+    "v26",
+    "v27",
+    "v28"
+  ],
+  "class_imbalance_strategy": {
+    "logistic_regression": "class_weight=balanced",
+    "random_forest": "class_weight=balanced_subsample",
+    "xgboost": "scale_pos_weight=training negatives / training positives",
+    "oversampling": "not used"
+  },
+  "xgboost": {
+    "available": false,
+    "included_in_comparison": false,
+    "reason": "xgboost is not installed."
+  },
+  "validation_model_comparison": {
+    "logistic_regression": {
+      "threshold": 0.9999982683553609,
+      "accuracy": 0.9996020692399522,
+      "precision": 0.9148936170212766,
+      "recall": 0.7678571428571429,
+      "f1_score": 0.8349514563106796,
+      "roc_auc": 0.9836010614253905,
+      "pr_auc_average_precision": 0.8451108408387686,
+      "confusion_matrix": {
+        "labels": [
+          "non_fraud",
+          "fraud"
+        ],
+        "matrix": [
+          [
+            42661,
+            4
+          ],
+          [
+            13,
+            43
+          ]
+        ]
+      },
+      "classification_report": {
+        "non_fraud": {
+          "precision": 0.9996953648591649,
+          "recall": 0.9999062463377476,
+          "f1-score": 0.9998007944784917,
+          "support": 42665.0
+        },
+        "fraud": {
+          "precision": 0.9148936170212766,
+          "recall": 0.7678571428571429,
+          "f1-score": 0.8349514563106796,
+          "support": 56.0
+        },
+        "accuracy": 0.9996020692399522,
+        "macro avg": {
+          "precision": 0.9572944909402208,
+          "recall": 0.8838816945974453,
+          "f1-score": 0.9173761253945856,
+          "support": 42721.0
+        },
+        "weighted avg": {
+          "precision": 0.9995842041213798,
+          "recall": 0.9996020692399522,
+          "f1-score": 0.9995847048987208,
+          "support": 42721.0
+        }
+      },
+      "classification_report_text": "              precision    recall  f1-score   support\n\n   non_fraud       1.00      1.00      1.00     42665\n       fraud       0.91      0.77      0.83        56\n\n    accuracy                           1.00     42721\n   macro avg       0.96      0.88      0.92     42721\nweighted avg       1.00      1.00      1.00     42721\n",
+      "rows": 42721,
+      "fraud_rows": 56
+    },
+    "random_forest": {
+      "threshold": 0.16653802849477267,
+      "accuracy": 0.9997191076987898,
+      "precision": 0.9583333333333334,
+      "recall": 0.8214285714285714,
+      "f1_score": 0.8846153846153846,
+      "roc_auc": 0.9658146523580722,
+      "pr_auc_average_precision": 0.87177522268361,
+      "confusion_matrix": {
+        "labels": [
+          "non_fraud",
+          "fraud"
+        ],
+        "matrix": [
+          [
+            42663,
+            2
+          ],
+          [
+            10,
+            46
+          ]
+        ]
+      },
+      "classification_report": {
+        "non_fraud": {
+          "precision": 0.9997656597848756,
+          "recall": 0.9999531231688737,
+          "f1-score": 0.9998593826900092,
+          "support": 42665.0
+        },
+        "fraud": {
+          "precision": 0.9583333333333334,
+          "recall": 0.8214285714285714,
+          "f1-score": 0.8846153846153846,
+          "support": 56.0
+        },
+        "accuracy": 0.9997191076987898,
+        "macro avg": {
+          "precision": 0.9790494965591046,
+          "recall": 0.9106908472987225,
+          "f1-score": 0.9422373836526969,
+          "support": 42721.0
+        },
+        "weighted avg": {
+          "precision": 0.9997113490177754,
+          "recall": 0.9997191076987898,
+          "f1-score": 0.9997083173148499,
+          "support": 42721.0
+        }
+      },
+      "classification_report_text": "              precision    recall  f1-score   support\n\n   non_fraud       1.00      1.00      1.00     42665\n       fraud       0.96      0.82      0.88        56\n\n    accuracy                           1.00     42721\n   macro avg       0.98      0.91      0.94     42721\nweighted avg       1.00      1.00      1.00     42721\n",
+      "rows": 42721,
+      "fraud_rows": 56
+    }
+  },
+  "selected_thresholds": {
+    "logistic_regression": 0.9999982683553609,
+    "random_forest": 0.16653802849477267
+  },
+  "selected_model_results": {
+    "train": {
+      "threshold": 0.16653802849477267,
+      "accuracy": 0.9998194257739612,
+      "precision": 0.9142857142857143,
+      "recall": 1.0,
+      "f1_score": 0.9552238805970149,
+      "roc_auc": 0.999995432434583,
+      "pr_auc_average_precision": 0.9974782625729293,
+      "confusion_matrix": {
+        "labels": [
+          "non_fraud",
+          "fraud"
+        ],
+        "matrix": [
+          [
+            198944,
+            36
+          ],
+          [
+            0,
+            384
+          ]
+        ]
+      },
+      "classification_report": {
+        "non_fraud": {
+          "precision": 1.0,
+          "recall": 0.9998190772942004,
+          "f1-score": 0.9999095304631035,
+          "support": 198980.0
+        },
+        "fraud": {
+          "precision": 0.9142857142857143,
+          "recall": 1.0,
+          "f1-score": 0.9552238805970149,
+          "support": 384.0
+        },
+        "accuracy": 0.9998194257739612,
+        "macro avg": {
+          "precision": 0.9571428571428571,
+          "recall": 0.9999095386471002,
+          "f1-score": 0.9775667055300592,
+          "support": 199364.0
+        },
+        "weighted avg": {
+          "precision": 0.9998349035647646,
+          "recall": 0.9998194257739612,
+          "f1-score": 0.9998234603122811,
+          "support": 199364.0
+        }
+      },
+      "classification_report_text": "              precision    recall  f1-score   support\n\n   non_fraud       1.00      1.00      1.00    198980\n       fraud       0.91      1.00      0.96       384\n\n    accuracy                           1.00    199364\n   macro avg       0.96      1.00      0.98    199364\nweighted avg       1.00      1.00      1.00    199364\n",
+      "rows": 199364,
+      "fraud_rows": 384
+    },
+    "validation": {
+      "threshold": 0.16653802849477267,
+      "accuracy": 0.9997191076987898,
+      "precision": 0.9583333333333334,
+      "recall": 0.8214285714285714,
+      "f1_score": 0.8846153846153846,
+      "roc_auc": 0.9658146523580722,
+      "pr_auc_average_precision": 0.87177522268361,
+      "confusion_matrix": {
+        "labels": [
+          "non_fraud",
+          "fraud"
+        ],
+        "matrix": [
+          [
+            42663,
+            2
+          ],
+          [
+            10,
+            46
+          ]
+        ]
+      },
+      "classification_report": {
+        "non_fraud": {
+          "precision": 0.9997656597848756,
+          "recall": 0.9999531231688737,
+          "f1-score": 0.9998593826900092,
+          "support": 42665.0
+        },
+        "fraud": {
+          "precision": 0.9583333333333334,
+          "recall": 0.8214285714285714,
+          "f1-score": 0.8846153846153846,
+          "support": 56.0
+        },
+        "accuracy": 0.9997191076987898,
+        "macro avg": {
+          "precision": 0.9790494965591046,
+          "recall": 0.9106908472987225,
+          "f1-score": 0.9422373836526969,
+          "support": 42721.0
+        },
+        "weighted avg": {
+          "precision": 0.9997113490177754,
+          "recall": 0.9997191076987898,
+          "f1-score": 0.9997083173148499,
+          "support": 42721.0
+        }
+      },
+      "classification_report_text": "              precision    recall  f1-score   support\n\n   non_fraud       1.00      1.00      1.00     42665\n       fraud       0.96      0.82      0.88        56\n\n    accuracy                           1.00     42721\n   macro avg       0.98      0.91      0.94     42721\nweighted avg       1.00      1.00      1.00     42721\n",
+      "rows": 42721,
+      "fraud_rows": 56
+    },
+    "test": {
+      "threshold": 0.16653802849477267,
+      "accuracy": 0.9995084499789336,
+      "precision": 0.8297872340425532,
+      "recall": 0.75,
+      "f1_score": 0.7878787878787878,
+      "roc_auc": 0.9522721331867102,
+      "pr_auc_average_precision": 0.7765667733333141,
+      "confusion_matrix": {
+        "labels": [
+          "non_fraud",
+          "fraud"
+        ],
+        "matrix": [
+          [
+            42662,
+            8
+          ],
+          [
+            13,
+            39
+          ]
+        ]
+      },
+      "classification_report": {
+        "non_fraud": {
+          "precision": 0.9996953719976567,
+          "recall": 0.9998125146472931,
+          "f1-score": 0.9997539398910306,
+          "support": 42670.0
+        },
+        "fraud": {
+          "precision": 0.8297872340425532,
+          "recall": 0.75,
+          "f1-score": 0.7878787878787878,
+          "support": 52.0
+        },
+        "accuracy": 0.9995084499789336,
+        "macro avg": {
+          "precision": 0.9147413030201049,
+          "recall": 0.8749062573236466,
+          "f1-score": 0.8938163638849093,
+          "support": 42722.0
+        },
+        "weighted avg": {
+          "precision": 0.9994885646577928,
+          "recall": 0.9995084499789336,
+          "f1-score": 0.9994960514985247,
+          "support": 42722.0
+        }
+      },
+      "classification_report_text": "              precision    recall  f1-score   support\n\n   non_fraud       1.00      1.00      1.00     42670\n       fraud       0.83      0.75      0.79        52\n\n    accuracy                           1.00     42722\n   macro avg       0.91      0.87      0.89     42722\nweighted avg       1.00      1.00      1.00     42722\n",
+      "rows": 42722,
+      "fraud_rows": 52
+    }
+  },
+  "test_access_policy": "Test split loaded once after validation-based model and threshold selection.",
+  "risk_categories": {
+    "high": "probability >= selected validation threshold (0.166538028495)",
+    "medium": "probability >= 0.5 * selected validation threshold and below it",
+    "low": "probability < 0.5 * selected validation threshold"
+  },
+  "metric_definitions": {
+    "pr_auc_average_precision": "Average precision, the PR-curve summary.",
+    "confusion_matrix": "Rows are true non-fraud/fraud; columns are predicted non-fraud/fraud."
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "created_at_utc": "2026-11-11T17:31:05.605389+00:00",
+  "data_source": "C:\\Users\\Shristi\\Desktop\\capstone\\demo\\backend\\data\\behavioral\\synthetic_activities.csv",
+  "data_is_synthetic": true,
+  "dataset_rows": 258,
+  "dataset_users": 6,
+  "synthetic_label_counts": {
+    "normal": 252,
+    "suspicious_scenario": 6
+  },
+  "split_method": "disjoint user-aware holdout; no user appears in multiple splits",
+  "user_split": {
+    "train": [
+      "user-003",
+      "user-004",
+      "user-005",
+      "user-006"
+    ],
+    "validation": [
+      "user-002"
+    ],
+    "test": [
+      "user-001"
+    ]
+  },
+  "training_policy": "Autoencoder and preprocessing fit on normal training-user events/windows only.",
+  "sequence_length": 12,
+  "input_feature_count": 19,
+  "latent_units": 8,
+  "feature_inputs": {
+    "numeric": [
+      "amount_log",
+      "amount_change_log",
+      "interval_seconds_log",
+      "login_hour_sin",
+      "login_hour_cos",
+      "frequency_log",
+      "device_changed",
+      "device_new_to_user",
+      "location_changed",
+      "location_new_to_user",
+      "transaction_type_changed",
+      "activity_type_changed"
+    ],
+    "categorical": [
+      "transaction_type",
+      "activity_type",
+      "activity_transition"
+    ],
+    "excluded": [
+      "user_id",
+      "scenario",
+      "is_synthetic",
+      "synthetic_suspicious_label",
+      "transaction_status",
+      "device_id",
+      "location"
+    ]
+  },
+  "epochs_requested": 50,
+  "epochs_completed": 50,
+  "validation_quantile": 0.95,
+  "reconstruction_error_threshold": 0.39444966018199906,
+  "model_artifact": "C:\\Users\\Shristi\\Desktop\\capstone\\demo\\backend\\models\\behavioral_autoencoder.keras",
+  "preprocessing_artifact": "C:\\Users\\Shristi\\Desktop\\capstone\\demo\\backend\\models\\behavioral_autoencoder_preprocessing.json",
+  "results": {
+    "train_normal_only": {
+      "normal_training_rows": 168,
+      "reconstruction_error_summary": {
+        "minimum": 0.0676284208893776,
+        "median": 0.14886998385190964,
+        "maximum": 0.3715614378452301
+      },
+      "threshold": 0.39444966018199906
+    },
+    "validation_normal_only": {
+      "normal_validation_rows": 42,
+      "positive_rows_used_for_threshold": 0,
+      "threshold_quantile": 0.95,
+      "threshold": 0.39444966018199906,
+      "normal_validation_error_summary": {
+        "minimum": 0.17264069616794586,
+        "median": 0.2299463227391243,
+        "maximum": 0.3997131288051605
+      }
+    },
+    "test_held_out_user": {
+      "rows": 43,
+      "positive_rows": 1,
+      "threshold": 0.39444966018199906,
+      "accuracy": 0.5813953488372093,
+      "precision": 0.05263157894736842,
+      "recall": 1.0,
+      "f1_score": 0.1,
+      "roc_auc": 1.0,
+      "pr_auc_average_precision": 1.0,
+      "confusion_matrix": {
+        "labels": [
+          "synthetic_normal",
+          "synthetic_suspicious"
+        ],
+        "matrix": [
+          [
+            24,
+            18
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "classification_report": {
+        "synthetic_normal": {
+          "precision": 1.0,
+          "recall": 0.5714285714285714,
+          "f1-score": 0.7272727272727273,
+          "support": 42.0
+        },
+        "synthetic_suspicious": {
+          "precision": 0.05263157894736842,
+          "recall": 1.0,
+          "f1-score": 0.1,
+          "support": 1.0
+        },
+        "accuracy": 0.5813953488372093,
+        "macro avg": {
+          "precision": 0.5263157894736842,
+          "recall": 0.7857142857142857,
+          "f1-score": 0.41363636363636364,
+          "support": 43.0
+        },
+        "weighted avg": {
+          "precision": 0.97796817625459,
+          "recall": 0.5813953488372093,
+          "f1-score": 0.7126849894291756,
+          "support": 43.0
+        }
+      },
+      "reconstruction_error_summary": {
+        "normal_median": 0.38972412049770355,
+        "suspicious_median": 1.5646071434020996
+      }
+    }
+  },
+  "limitations": [
+    "All sequences and targets are synthetic demonstration data.",
+    "Only six fictional users are available; the held-out test contains one user and one suspicious scenario.",
+    "Test classification and ranking metrics are unstable and do not establish real-world fraud performance.",
+    "Synthetic suspicious scenario labels are evaluation targets only, not confirmed fraud labels.",
+    "The reconstruction threshold is a validation-normal quantile and does not guarantee a target false-positive rate on future users."
+  ],
+  "test_access_policy": "Test-user data and labels were not used for preprocessing, model fitting, early stopping, or threshold selection."
+}

@@ -1,0 +1,239 @@
+{
+  "created_at_utc": "2026-11-11T16:37:53.354054+00:00",
+  "data_source": "C:\\Users\\Shristi\\Desktop\\capstone\\demo\\backend\\data\\behavioral\\synthetic_activities.csv",
+  "data_is_synthetic": true,
+  "dataset_rows": 258,
+  "dataset_users": 6,
+  "synthetic_label_counts": {
+    "normal": 252,
+    "suspicious_scenario": 6
+  },
+  "split_method": "disjoint user-aware holdout; no user appears in multiple splits",
+  "user_split": {
+    "train": [
+      "user-003",
+      "user-004",
+      "user-005",
+      "user-006"
+    ],
+    "validation": [
+      "user-002"
+    ],
+    "test": [
+      "user-001"
+    ]
+  },
+  "sequence_length": 12,
+  "input_feature_count": 19,
+  "feature_inputs": {
+    "numeric": [
+      "amount_log",
+      "amount_change_log",
+      "interval_seconds_log",
+      "login_hour_sin",
+      "login_hour_cos",
+      "frequency_log",
+      "device_changed",
+      "device_new_to_user",
+      "location_changed",
+      "location_new_to_user",
+      "transaction_type_changed",
+      "activity_type_changed"
+    ],
+    "categorical": [
+      "transaction_type",
+      "activity_type",
+      "activity_transition"
+    ],
+    "excluded": [
+      "user_id",
+      "scenario",
+      "is_synthetic",
+      "synthetic_suspicious_label",
+      "transaction_status",
+      "device_id",
+      "location"
+    ]
+  },
+  "class_weights": {
+    "0": 0.5119047619047619,
+    "1": 21.5
+  },
+  "epochs_requested": 40,
+  "epochs_completed": 40,
+  "validation_threshold": 0.969758152961731,
+  "model_artifact": "C:\\Users\\Shristi\\Desktop\\capstone\\demo\\backend\\models\\behavioral_lstm.keras",
+  "preprocessing_artifact": "C:\\Users\\Shristi\\Desktop\\capstone\\demo\\backend\\models\\behavioral_lstm_preprocessing.json",
+  "results": {
+    "train": {
+      "rows": 172,
+      "positive_rows": 4,
+      "threshold": 0.969758152961731,
+      "accuracy": 0.9883720930232558,
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1_score": 0.6666666666666666,
+      "roc_auc": 1.0,
+      "pr_auc_average_precision": 1.0,
+      "confusion_matrix": {
+        "labels": [
+          "synthetic_normal",
+          "synthetic_suspicious"
+        ],
+        "matrix": [
+          [
+            168,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      "classification_report": {
+        "synthetic_normal": {
+          "precision": 0.9882352941176471,
+          "recall": 1.0,
+          "f1-score": 0.9940828402366864,
+          "support": 168.0
+        },
+        "synthetic_suspicious": {
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1-score": 0.6666666666666666,
+          "support": 4.0
+        },
+        "accuracy": 0.9883720930232558,
+        "macro avg": {
+          "precision": 0.9941176470588236,
+          "recall": 0.75,
+          "f1-score": 0.8303747534516766,
+          "support": 172.0
+        },
+        "weighted avg": {
+          "precision": 0.9885088919288646,
+          "recall": 0.9883720930232558,
+          "f1-score": 0.9864685106187788,
+          "support": 172.0
+        }
+      }
+    },
+    "validation": {
+      "rows": 43,
+      "positive_rows": 1,
+      "threshold": 0.969758152961731,
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "roc_auc": 1.0,
+      "pr_auc_average_precision": 1.0,
+      "confusion_matrix": {
+        "labels": [
+          "synthetic_normal",
+          "synthetic_suspicious"
+        ],
+        "matrix": [
+          [
+            42,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "classification_report": {
+        "synthetic_normal": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 42.0
+        },
+        "synthetic_suspicious": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 1.0
+        },
+        "accuracy": 1.0,
+        "macro avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 43.0
+        },
+        "weighted avg": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1-score": 1.0,
+          "support": 43.0
+        }
+      }
+    },
+    "test": {
+      "rows": 43,
+      "positive_rows": 1,
+      "threshold": 0.969758152961731,
+      "accuracy": 0.9767441860465116,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1_score": 0.0,
+      "roc_auc": 1.0,
+      "pr_auc_average_precision": 1.0,
+      "confusion_matrix": {
+        "labels": [
+          "synthetic_normal",
+          "synthetic_suspicious"
+        ],
+        "matrix": [
+          [
+            42,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "classification_report": {
+        "synthetic_normal": {
+          "precision": 0.9767441860465116,
+          "recall": 1.0,
+          "f1-score": 0.9882352941176471,
+          "support": 42.0
+        },
+        "synthetic_suspicious": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1-score": 0.0,
+          "support": 1.0
+        },
+        "accuracy": 0.9767441860465116,
+        "macro avg": {
+          "precision": 0.4883720930232558,
+          "recall": 0.5,
+          "f1-score": 0.49411764705882355,
+          "support": 43.0
+        },
+        "weighted avg": {
+          "precision": 0.9540292049756623,
+          "recall": 0.9767441860465116,
+          "f1-score": 0.9652530779753762,
+          "support": 43.0
+        }
+      }
+    }
+  },
+  "limitations": [
+    "All sequences and targets are synthetic demonstration data.",
+    "Only six synthetic users are available; the test partition contains one held-out user and one suspicious scenario.",
+    "Reported metrics are unstable and do not establish real-world fraud performance.",
+    "The supervised score estimates resemblance to the synthetic suspicious scenario labels, not confirmed fraud.",
+    "Synthetic labels are used only as targets and excluded from input features."
+  ],
+  "test_access_policy": "Test users were not used for preprocessing fit, model fit, or threshold selection."
+}
